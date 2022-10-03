@@ -37,6 +37,9 @@ export async function createPet(pet) {
 //      - returns a single data object (not an array)
 
 // > Part C: Export async function that
+export async function getPets(pets) {
+    return await client.from('pets').select('*').order('created_at').limit(100);
+}
 //      - gets all pets from supabase
 //      - order the list by created date
 

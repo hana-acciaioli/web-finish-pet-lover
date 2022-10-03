@@ -2,6 +2,7 @@
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
 // > Part C: import fetch to get pets
+import { getPets } from './fetch-utils.js';
 import { renderPet } from './render-utils.js';
 
 /* Get DOM Elements */
@@ -16,7 +17,10 @@ let pets = [];
 window.addEventListener('load', async () => {
     // > Part C:
     //    - get the pets
+    const response = await getPets();
     //    - store the error and pets state from the response
+    error = response.error;
+    pets = response.data;
     //    - either display the error or the pets
 
     if (error) {
